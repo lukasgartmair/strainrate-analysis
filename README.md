@@ -20,23 +20,12 @@ Zeit [s]	Weg [mm]	Kraft [N]	Epsilon 0	Epsilon w	Sigma 0	Sigma w	Epsilon w Punkt	
 	Addiotional columns are ignored.
 - The longitudination is decreasing 
 - So does the force
-This fact becomes corrected in the program.
 
 Options:
 
 Enter all options with a dot! Example: height = 22.45 mm
 	A comma will raise an error.
-
-- Number of windows: This parameter says in how many subsets the data is divided for
-	calculating the strainrate etc.
-	Both a window size too small and too big result in higher fitting errors.
-
-- Number of points to be stored (nopts): This parameter says how many points per window
-	chosen by the number of windows parameter are stored.
-	This parameter has to be chosen sensitive in order to depict the original
-	shape of the curve as well as possible.
-	The only restriction for this parameter is of course that one can't store more 
-	points than the window size is great.
+Currently dummy values are set in main.
 
 Output:
 
