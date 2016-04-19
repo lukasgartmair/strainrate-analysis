@@ -172,10 +172,7 @@ print('number of points after filter: ' + str(strain_plast_filtered.size))
 plot.plot_setup(save_path, time_corr_filtered, strain_plast_filtered, strain_plast_means_filtered, strainrate_plast_filtered, strain_plast, time_corr, strain_plast_means_orig, strainrate_plast_orig)
 
 # write summary file
-
-summary = writefile.summarize(strain_plast_means_orig, strainrate_plast_orig, strain_plast_filtered, strainrate_plast_filtered, time_corr, strain_true, stress_true)
-
-#writefile.write_summary(summary)
+writefile.write_summary((strain_plast_means_orig, strainrate_plast_orig, strain_plast_filtered, strainrate_plast_filtered, time_corr, strain_true, stress_true))
 
 
 
