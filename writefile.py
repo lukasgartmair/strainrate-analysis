@@ -1,17 +1,35 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Dec 27 22:53:32 2015
+Created on Tue Apr 19 09:56:11 2016
 
 @author: Lukas Gartmair
 """
 
 import numpy as np
+import matplotlib.pyplot as pl
 
-def summarize(*args):    
-    summary = np.array(args)
-    return summary
+import csv
 
-def write_summary(summary):
-    filename = 'summary.txt'
-    np.savetxt(filename, np.transpose([summary]), header= 'Datapoint Nr., Time / s, Strain plast / %, Strainrate plast / %/s, Strain True / %, Stress True / MPa, Filtered Strain plast / %, Filtered Strainrate plast / %/s', delimiter=',', comments = '')
+def get_header():
+    header = ['strain_plast_means_orig', 'strainrate_plast_orig',
+              'strain_plast_filtered', 'strainrate_plast_filtered',
+              'time_corr', 'strain_true', 'stress_true']
+    return header
+    
+def write_summary(*args):
+    rows = zip(np.transpose(args))
+    b = open('summary.txt', 'w')
+    writer = csv.writer(b)
+    header = get_header()
+    writer.writerow(header)
+    for x,row in enumerate(rows):
+        writer.writerow(row[0])
+    b.close()
 
+#test
+
+x = np.array([1,2,3])
+y = np.array([5,6,7])
+z = np.array([6,9,7])
+
+write_summary(x,y,z)
